@@ -1,4 +1,4 @@
-hooks/*
+ict286/hooks/*
 ict286/platforms/*
 ict286/plugins/*
-ict286/config.xml
+config.xml
