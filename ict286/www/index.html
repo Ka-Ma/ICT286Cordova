@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>BMM</title>
+    </head>
+    <body>
+        <div class = "banner"> <!--have to work out how to reliably centre images-->
+	<img class="coInfo" src="images/banner/banner-since1999.jpg">
+	<img class="coInfo" src="images/banner/banner-eVicPk.jpg">
+	<img class="coInfo" src="images/banner/banner-in2016.jpg">
+	<img class="coInfo" src="images/banner/banner-mypongaPS.jpg">
+	<img class="coInfo" src="images/banner/banner-LTC-StateSchool.jpg">
+  </div>
+  
+  <div class = "navigation" id="navigation">
+    <ul>
+	  <li>
+	    <a id="home" class="active" href="javascript:loadPage('home-page')">Home</a>
+	  </li>
+	  <li>
+	    <a id="aboutUs" href="javascript:loadPage('aboutUs-page')">About Us</a>
+	  </li>
+	  <li>
+	    <a id="search"  href="javascript:loadPage('search-page')">Search</a>
+	  </li>
+	  <!--<li>
+	    <a id="tradeIn" style="display: none" href="javascript:loadPage('tradeIn-page')">Trade-In Request</a>
+	  </li>
+	  <li>
+	    <a id="AED" style="display: none" href="javascript:loadPage('AED-page')">Add/Edit/Delete Books</a>
+	  </li>-->
+	  <li style="float: right">
+	    <a id="LO" style="display: none" href="">Logout</a> <!-- need to add this ability -->
+	  </li>
+	  <li style="float: right">
+	    <a id="LIR"  href="javascript:loadPage('LIR-page')">Login/Register</a>
+	  </li>
+	  <li style="float: right">
+	    <a id="account" style="display: none" href="javascript:loadPage('account-page')">Account</a>
+	  </li>
+	  <li style="float: right">
+	    <a id="cart"  href="javascript:loadPage('cart-page')" onclick = "javascript:displayCart()">Cart</a>
+	  </li>
+	</ul>
+  </div>
+  
+  <div class="main-content">
+  
+    <div id="home-page" style="display: block">
+		
+		<div id="bookOfWk" class="float-left">
+		</div>
+		
+		<div id="quote" class="float-right">
+			<img class="aQuote" src="images/aQuote/1.jpg">
+			<img class="aQuote" src="images/aQuote/2.jpg">
+			<img class="aQuote" src="images/aQuote/3.jpg">
+			<img class="aQuote" src="images/aQuote/4.jpg">
+			<img class="aQuote" src="images/aQuote/5.jpg">
+		</div>
+						
+		<div id="recentBooks" class="fullwidth">
+		</div>
+		
+	</div>
+	
+	<div id="aboutUs-page" style="display: none">
+	<h1>About Us</h1>
+        <p class = "header">Books Matters, Mann!</p>
+        <p class = "header">123 Pretend Street, Pretenderton, WA, 6210</p>
+        <p class = "header">Phone: 9123 8765</p>
+        <p class = "header">Email: <a href = \"mailto:admin@bmm.com.au\"> admin@bmm.com.au </a></p>
+        <p class = "text">Romeo and Juliette embraced their love of fiction and opened 'Books Matters, Mann!' in 199$
+        and it has been a family business ever since. Romeo and Juliette were both avid readers, seeking to read
+        as many books, from as wide a variety of genres as they could. After many years of fulfilling this dream,
+        they came up with another dream. To share the wonderful world of fiction with as many people as they
+        could. 17 years down the track and 'Books Matters, Mann!' is still fulfilling this dream. BMM is a small
+        business with a big heart. BMM provides homes for both new and used books. All of our used books are
+        traded to us by our loyal customers in exchange for credits, which they can use online or in store to
+        purchase from our wide range of books. We also stock new books from a diverse range of authors so that they
+        too may find a welcoming home. BMM is also a proud donator of used books to local schools, where
+        students of all ages may enjoy the stories they have to tell. For every 10 books that are purchased
+        from BMM, online or in store, we donate 1 used book to a public school. Over 4000 books have already been
+        generously donated to this date. Our staff members all share Romeo and Juliette's love for books and their
+        dream to share the world of fiction. It is through their hard work and dedication that BMM is still able
+	to continue striving to fulfill this wonderful dream. </p>
+	</div>
+	
+	<div id="cart-page" style="display: none">
+	<p id = "showCart"></p>
+	</div>
+
+	<div id="AED-page" style="display: none">
+	<br /><form id = "formAED">
+	<label>Add: <input type = "radio" value = "Add" name = "aedRadio" onclick = "javascript:aedFunc()" /></label>
+	<label>Edit: <input type = "radio" value = "Edit" name = "aedRadio" onclick = "javascript:aedFunc()" /></label>
+	<label>Delete: <input type = "radio" value = "Delete" name = "aedRadio" onclick = "javascript:aedFunc()" /></label>
+	</form>
+        <p id = "aedInfo" class = "text"></p>
+	<p id = "add" class = "text"></p>
+	<p id = "edit" class = "text"></p>
+	<p id = "delete" class = "text"></p>
+	<p id = "aedInfo2" class = "text"></p>
+        </div>
+	
+	<div id="search-page" style="display: none">
+	<br /><form id = "SearchBox">
+	<label> Search: <input type = "text" name = "searchBox" /></label>
+	<button class = "type1" type = "button" value = "Submit" onclick = "javascript:searchText()">Search</button><br />
+	<p class = "text">
+	OR <br /><br /> Select 1 or more genres:
+	</p></form>
+	<form id = "SearchForm">
+		<table>
+		<caption class = "searchTable"></caption>
+		<p class = "text">
+		<tbody><tr><td>
+			<label>Drama: <input type = "checkbox" value = "Drama" name = "genre" /></label>
+		</td><td>
+			<label>Fantasy: <input type = "checkbox" value = "Fantasy" name = "genre" /></label>
+		</td><td>
+			<label>Mystery: <input type = "checkbox" value = "Mystery" name = "genre" /></label>
+		</td><td>
+			<label>Thriller: <input type = "checkbox" value = "Thriller" name = "genre" /></label>
+		</td><td>
+                        <label>Bildungsroman: <input type = "checkbox" value = "Bildungsroman" name = "genre" /></label>
+		</td></tr>
+		<tr><td>
+		 	<label>Young Adult Fiction: <input type = "checkbox" value = "Young Adult Fiction" name = "genre" /></label>
+                </td><td>
+                        <label>Children's Fiction: <input type = "checkbox" value = "Children's Fiction" name = "genre" /></label>
+                </td><td>
+                        <label>Adventure: <input type = "checkbox" value = "Adventure" name = "genre" /></label>
+                </td><td>
+                        <label>Animals: <input type = "checkbox" value = "Animals" name = "genre" /></label>
+		</td><td>
+                        <label>Humour: <input type = "checkbox" value = "Humour" name = "genre" /></label>
+                </td></tr>
+                <tr><td>
+                        <label>Classic: <input type = "checkbox" value = "Classic" name = "genre" /></label>
+                </td><td>
+                        <label>Short Stories: <input type = "checkbox" value = "Short Stories" name = "genre" /></label>
+                </td><td>
+                        <label>Traditional: <input type = "checkbox" value = "Traditional" name = "genre" /></label>
+                </td><td>
+                        <label>Children's: <input type = "checkbox" value = "Children's "name = "genre" /></label>
+                </td><td>
+                        <label>Historical Fiction: <input type = "checkbox" value = "Historical Fiction" name = "genre" /></label>
+                </td></tr>
+		<tr><td>
+                        <label>Philosophical Fiction: <input type = "checkbox" value = "Philosophical Fiction" name = "genre" /></label>
+                </td><td>
+                        <label>Science Fiction: <input type = "checkbox" value = "Science Fiction" name = "genre" /></label>
+                </td><td>
+                        <label>Romance: <input type = "checkbox" value = "Romance" name = "genre" /></label>
+                </td><td>
+                        <label>Horror: <input type = "checkbox" value = "Horror" name = "genre" /></label>
+                </td><td>
+		</td></tr></tbody>
+		</table>	
+	<button class = "type1" type = "button" value = "Submit" onclick = "javascript:search()">Search</button>
+	</p>
+	</form>
+	<p class = "text" id = "searchBooks"></p>
+	</div>
+	
+	<div id="LIR-page" style="display: none">
+	<br /><table>
+	<caption class = "loginTable"></caption>
+	<thead><tr>
+		<th> Register </th>
+		<th> Login </th>
+	</tr></thead>
+	<tbody><tr><td>
+			<form id ="register" method = "POST" action = "php/register.php">
+                        <p class = "text">
+                        <label>Username: <input type = "text" name = "regUsername"></input></label><br />
+                        <label>Password: <input type = "password" name = "regPassword"></input></label><br />
+			<label>First Name: <input type = "text" name = "fname"></input></label><br />             
+			<label>Last Name: <input type = "text" name = "lname"></input></label><br />
+			<label>Street: <input type = "text" name = "street"></input></label><br />
+			<label>Suburb: <input type = "text" name = "suburb"></input></label><br />
+			<label>State: <input type = "text" name = "state"></input></label><br />
+			<label>Postcode: <input type = "text" name = "postcode"></input></label><br />
+			<label>Email: <input type = "text" name = "email"></input></label><br />
+			<label>Phone: <input type = "number" name = "phone"></input></label><br />
+			<button type = "button" onclick = "javascript:register()">Submit</button>
+                        </p>
+			<p class = text id = "regFail"></p>
+                        </form>
+		</td><td>
+			<form id ="login">
+			<p class = "text">
+			<label>Username: <input type = "text" name = "loginUsername"></input></label><br />
+			<label>Password: <input type = "password" name = "loginPassword"></input></label><br />
+			<button type = "button" onclick = "javascript:login(this.form.loginUsername.value, this.form.loginPassword.value)">Submit</button>
+			</p>
+			<p class = text id = "logFail"></p>
+			</form>
+		</td></tr></tbody>
+	</table>
+	</div>
+
+	<div id="purchase-page" style="display: none">
+	<form id = "purchasing">
+		<br /><p class = "text"> Payment Method: </p>
+		<label>American Express: <input type = "radio" value = "AE" name = "method" /></label><br />
+		<label>Mastercard: <input type = "radio" value = "MC" name = "method" /></label><br />
+		<label>Visa: <input type = "radio" value = "V" name = "method" /></label><br />
+		<label>Paypal: <input type = "radio" value = "PP" name = "method" /></label><br />
+		<br /><p class = "text"> Card Details: </p>
+		<label class = "buy">First Name <input class = "buy" type = "text" name = "fName" /></label>
+		<label class = "buy">Last Name<input class = "buy" type = "text" name = "lName" /></label><br />
+		<label class = "buy">Credit Card Number:<input class = "buy" type = "number" name = "cardNum" /></label>
+		<label class = "buy">CVV:<input class = "buy" type = "number" name = "cvv" /></label><br />
+		<label class = "buy">Expiration:
+		<select name = "expDay">
+                        <option>01</option>
+			<option>02</option>
+			<option>03</option>
+			<option>04</option>
+			<option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+			<option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+			<option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+			<option>31</option>
+                </select>
+		<select name = "expMonth">
+			<option>Jan</option>
+			<option>Feb</option>
+			<option>Mar</option>
+			<option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+			<option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+			<option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+		</select>
+		<select name = "expYear">
+			<option>2015</option>
+                        <option>2016</option>
+			<option>2017</option>
+			<option>2018</option>
+			<option>2019</option>
+			<option>2020</option>
+			<option>2021</option>
+			<option>2022</option>
+			<option>2023</option>
+			<option>2024</option>
+			<option>2025</option>
+			<option>2026</option>
+                </select></label>
+		<p class = "text" id = payForm></p>
+		<button class = "type1" type = "button" onclick = "javascript:purchase()">Submit Payment</button>
+	</form>
+	<p id = "payError" class = "payError"></p>
+        </div>
+	
+	<div id="book-page" style="display: none">
+	<!-- this div becomes visible and populated when a book cover image is clicked to display the details of that book and give the opportunity to add the book to the cart, there is also a back button to return from whence they came -->
+	</div>
+	
+	<div id="account-page" style="display: none">
+			<div id="accSearch" style="display: none">
+ 			<!-- search for particular customer, choose from link list, populate "accDetails"  -->		
+ 			<p>To search for a customer please enter one of the following fields:</p>		
+ 			<form id="custSearch">		
+ 			  Customers Username: 		
+ 			  <input type="text" name="csUN"></br>		
+ 			  Customers Last Name:		
+ 			  <input type="text" name="csLN"></br>		
+ 			  Customers Phone:		
+ 			  <input type="text" name="csPH"></br>		
+ 			  <button type="button" id="custSearch" onclick="javascript:customerSearch(this.form.csUN.value, this.form.csLN.value, this.form.csPH.value)">Search</button>		
+ 			</form>		
+ 		</div>		
+ 		<div id="accSResults" style="display: none">		
+ 		</div>		
+ 				
+ 		<div id="aWelcome">		
+ 		</div>		
+ 				
+ 		<div id="accDetails">		
+ 		</div>		
+ 	  		
+ 		<div id="accUpdated">		
+ 		</div>		
+ 	  		
+ 		<div id="passwordChange">  		
+ 		<p></p>		
+ 		  <form name="passwordChangeReq">		
+ 			  Old Password:<input type="password" id="oldPassword">		
+ 			  New Password:<input type="password" id="newPassword">		
+ 			  New Password Again:<input type="password" id="newPasswordAgain">		
+ 			  <button type="button" id="subPWChange"  onclick="javascript:validatePasswordChange(this.form)">Submit Change</button>		
+ 		  </form>		
+ 		</div>		
+  			  	
+		<div id="updateCB" style="display: none">
+		<p></p>
+			<div id="newBal"></div>
+			<p></p>
+ 			<form id="fUpdateCB" action="">		
+ 				Adjust Credit Balance to:		
+ 				<input type="text" name="newCredBal">		
+ 				<button type="button" id="adjustCred" onclick="javascript:updateCredit(this.form.newCredBal.value)">Adjust Credit Balance</button>		
+ 			</form>		
+ 		</div>
+	
+	</div>
+	
+	<div id="tradeIn-page" style="display: none">
+		<h1>Trade in request</h1>
+		<div id="ti-past"> 
+		<!--list of trade ins for this customer and their status		 
+ 		hide if none or user is staff (they have their own access)-->
+		</div>
+		
+		<div id="ti-request"> <!-- hide if staff -->
+		<p>Please enter the details and photos of the book you would like to trade in. We will email you a price within 5 working days.</p>
+		<iframe src="" name="iframe_hide" width="100%" height="20"></iframe>
+		<form id="tradeIn-form" action="php/addTradeInBook.php" method="POST" enctype="multipart/form-data" target="iframe_hide"> <!-- don't want page to reload so going to have find a way to not do that -->
+		  <input type="hidden" name="CustID" id="setCust">
+		  <fieldset>
+		    <legend>Publication Information</legend>
+			Title*<br>
+		    <input type="text" name="tititle" onblur="setCustomer()"><br>
+			Author*<br>
+		    <input type="text" name="tiauthor"><br>
+			ISBN<br>
+		    <input type="text" name="tiisbn"><br>
+			Form*<br>
+			<input type="radio" name="tiform" value="Paperback" checked>Paperback<br>
+		    <input type="radio" name="tiform" value="Hardback">Hardback
+		  </fieldset>
+		  <fieldset>
+		    <legend>Condition Information</legend>
+			Description<br>
+		    <textarea name="tidesc" rows="10" cols="40"></textarea><br>
+			Photo of the front of the book*<br>
+		    <input type="file" name="tifrontImage" id="tifrontImage" accept="image/*"><br>
+			Photo of the back of the book*<br>
+		    <input type="file" name="tibackImage" id="tibackImage" accept="image/*"><br>
+			Photo of the spine of the book*<br>
+		    <input type="file" name="tispineImage" id="tispineImage" accept="image/*"><br>
+			Photo of the publication information page of the book*<br>
+		    <input type="file" name="tipubInfoImage" id="tipubInfoImage" accept="image/*" ><br>
+		    Photo of any other notable feature of the book (please mention in description)<br>
+			<input type="file" name="tiotherImage" id="tiotherImage" accept="image/*">
+		  </fieldset>
+		  *required fields<br>
+		  <input type="submit" value="Submit Trade In Request" name="submit">
+		</form>
+		
+		</div>
+		
+		<div id="ti-accept" style="display: none"> 
+		<!--<script>getTradeInRequest("all", "ti-accept", "staff");</script>-->
+		shows list (if more than one) of ALL trade-in requests by status(new, accepted, rejected, pending, finalised),  tradeInID(link to detail), custName, title, author.
+		
+		staff can provisionally accept tradein and offer a price which triggers email to customer with offer details
+		
+		staff can indicate receipt of book and absolute acceptence of trade in which triggers adding credit to customer account and email to customer and prompts staff to add/edit/delete page with some fields already completed.
+		</div>
+		<div id="ti-conf">
+		</div>
+
+	</div>
+  </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

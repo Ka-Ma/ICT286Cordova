@@ -1,0 +1,344 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+/*general*/
+body {
+ background-color: silver;
+ margin: 50px 15% 0 15%;
+ padding: 0;
+}
+
+/*banner*/
+div.banner {
+ 
+}
+div.banner img {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: auto;
+ height: 150px;
+ margin: 0;
+ padding: 0 25% 0 25%;
+}
+ 
+/*navigation*/
+div.navigation {
+ font-family: Tahoma, Geneva, sans-serif;
+ width: 100%;
+ position: fixed;
+ top: 0;
+ left: 0;
+}
+
+div.navigation ul {
+ list-style: none;
+ margin: 0;
+ overflow: hidden;
+ background-color: grey;
+}
+
+div.navigation  li{
+ display: inline-block;
+}
+
+div.navigation li a {
+ display: block;
+ text-decoration: none;
+ text-align: center;
+ padding: 15px;
+ color: black;
+}
+
+div.navigation li a:hover {
+ color: darkgrey;
+}
+
+.active {
+ background-color: teal;
+}
+
+/*main content*/
+.main-content {
+ background-color: white;
+ padding-bottom: 1px;
+ margin-bottom: 20px;
+}
+
+img.book {
+ height: 250px;
+ width: auto;
+}
+
+div.float-left {
+ float: left;
+ width: 49%;
+ max-height: 500px;
+ padding: 0.5%;
+}
+
+div.float-right {
+ float: right;
+ width: 49%;
+ max-height: 500px;
+ padding: 0.5%;
+}
+
+div.fullwidth {
+ display: block;
+ padding: 10px;
+ width: 100%;
+ height: 100%;
+ overflow: auto;
+}
+
+img.aQuote {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: 80%;
+ height: auto;
+ padding: 5px 0 5px 0;
+ float: right;
+}
+
+table {
+ width: 100%;
+}
+
+/* titles and headers */
+h1 {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 250%;
+ font-weight: 700;
+ font-style: italic;
+ margin-left: 10px;
+}
+
+h2 {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 200%;
+ font-weight: 600;
+ font-style: italic;
+ margin-left: 10px;
+}
+
+h3 {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 175%;
+ font-weight: 450;
+ font-style: italic;
+ margin-left: 10px;
+}
+
+p.header {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 150%;
+ font-weight: 300;
+ margin-left: 10px;
+}
+
+p.text {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 110%;
+ font-weight: 200;
+ margin-left: 10px;
+ margin-right: 10px;
+ margin-bottom: 20px;
+ text-align: justify;
+}
+
+p.bookSearch {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 100%;
+ font-weight: 200;
+ text-align: justify;
+}
+
+p.payError {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 110%;
+ font-weight: 200;
+ margin-left: 10px;
+ margin-right: 10px;
+ margin-bottom: 20px;
+ text-align: justify;
+ color: red;
+}
+
+label {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 110%;
+ font-weight: 200;
+ margin-left: 10px;
+ margin-right: 10px;
+ margin-bottom: 20px;
+ text-align: justify;
+}
+
+button.type1 {
+ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+ font-size: 110%;
+ font-weight: 200;
+ margin-left: 10px;
+ margin-right: 10px;
+ margin-bottom: 20px;
+ text-align: justify;
+}
+
+tr.search {
+ text-align: left;
+}
+
+td.search {
+ padding: 10px;
+ border-bottom: 1px solid #ddd;
+ vertical-align: top;
+}
+
+th.search {
+ width: 25%;
+}
+
+table.search {
+ width: 100%;
+ border-collapse: collapse;
+}
+
+table.cart {
+ width: 98%;
+ border-collapse: collapse;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+th.cart {
+ width: 14%;
+}
+
+td.cart {
+ padding: 10px;
+ border: 1px solid #ddd;
+ vertical-align: center;
+}
+
+label.buy {
+ display: inline-block
+}
+
+input.buy {
+ display: block;
+}
