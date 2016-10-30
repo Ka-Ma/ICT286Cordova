@@ -1,4 +1,4 @@
 hooks/*
-platforms/*
-plugins/*
-config.xml
+ict286/platforms/*
+ict286/plugins/*
+ict286/config.xml
