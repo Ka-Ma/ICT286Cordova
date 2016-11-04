@@ -21,17 +21,25 @@ var app = {
 		app.showBookOfWk(11111111);
 		app.showRecentBooks();
 		app.displayQuotes();
+		app.loadPage();
     },
 	carousel: function () {
 		var i;
 		var x = document.getElementsByClassName("coInfo");
+		
+		console.log(x.length);
+		console.log(x);
+		console.log(x[0]);
+		
 		for (i = 0; i < x.length; i++) {
 		  x[i].style.display = "none"; 
 		  console.log("checking elements " + x[i]);
 		}
 		this.slideIndex++;
 		if (this.slideIndex > x.length) {this.slideIndex = 1} 
-		x[this.slideIndex-1].style.display = "block"; 
+		var temp = x[this.slideIndex-1];
+		console.log(temp)
+		temp.style.display = "block"; 
 		setTimeout(this.carousel, 3000); // Change image every 3 seconds
 	},
 
@@ -50,14 +58,15 @@ var app = {
 
 		//run particular scripts
 		if(page=="tradeIn-page")
-			getTradeInRequest(sessionStorage.id, "",  "ti-past", "customer");
+			app.getTradeInRequest(sessionStorage.id, "",  "ti-past", "customer");
 		
 		//make this div visible
-		document.getElementById(page).style.display = "block";
+		thisdiv = document.getElementById(page);
+		thisdiv.style.display = "block";
 			
 		//need to take -page off the end to updateActive
 		page= page.slice(0, -5);
-		updateActive(page);
+		app.updateActive(page);
 	},
 
 	//to change the background color of navbar link to be current page
@@ -68,21 +77,8 @@ var app = {
 		
 		document.getElementById(oldPgId).removeAttribute("class");
 		curPg.setAttribute("class", "active");
-	}
-};
-
-app.initialize();
-
-//global array for cart
-var Cart = [];
-
-//for banner
-var banner = {
+	}, 
 	
-};
-
-//***** start functions for home page *****
-var homepage = {
 	showBookOfWk: function (bookID) {
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function () {
@@ -92,7 +88,7 @@ var homepage = {
 				document.getElementById("bookOfWk").innerHTML = "<h1>Book of the Week</h1>" + result;
 			}
 		}
-		xhr.open("GET", "php/getBook.php?bookID=" + bookID, true);
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/getBook.php?bookID=" + bookID, true);
 		xhr.send();
 	},
 
@@ -112,7 +108,7 @@ var homepage = {
 				delete date;
 			}
 		}
-		xhr.open("GET", "php/getRecentBk.php?date=" + dateSQL, true);
+		xhr.open("GET", "assignment2/php/getRecentBk.php?date=" + dateSQL, true);
 		xhr.send();
 	},
 
@@ -122,11 +118,26 @@ var homepage = {
 		for (i = 0; i < x.length; i++) {
 		  x[i].style.display = "none"; 
 		}
-		quoteIndex++;
-		if (quoteIndex > x.length) {quoteIndex = 1} 
-		x[quoteIndex-1].style.display = "block"; 
-		setTimeout(displayQuotes, 10000); // Change image every 10 seconds
+		this.quoteIndex++;
+		if (this.quoteIndex > x.length) {this.quoteIndex = 1} 
+		x[(this.quoteIndex-1)].style.display = "block"; 
+		setTimeout(this.displayQuotes, 10000); // Change image every 10 seconds
 	}
+};
+
+app.initialize();
+
+//global array for cart
+var Cart = [];
+
+//for banner
+var banner = {
+	
+};
+
+//***** start functions for home page *****
+var homepage = {
+	
 };
 //***** end functions for home page *****
 
