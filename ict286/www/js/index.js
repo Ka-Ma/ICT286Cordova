@@ -1,9 +1,10 @@
+var slideIndex = 0;
+var quoteIndex = 0;
+
 var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-		this.slideIndex = 0;
-		this.quoteIndex = 0;
     },
     // Bind Event Listeners
     //
@@ -21,25 +22,20 @@ var app = {
 		app.showBookOfWk(11111111);
 		app.showRecentBooks();
 		app.displayQuotes();
-		app.loadPage();
+		app.loadPage("home-page");
     },
 	carousel: function () {
 		var i;
 		var x = document.getElementsByClassName("coInfo");
 		
-		console.log(x.length);
-		console.log(x);
-		console.log(x[0]);
-		
 		for (i = 0; i < x.length; i++) {
 		  x[i].style.display = "none"; 
-		  console.log("checking elements " + x[i]);
 		}
-		this.slideIndex++;
-		if (this.slideIndex > x.length) {this.slideIndex = 1} 
-		var temp = x[this.slideIndex-1];
-		console.log(temp)
-		temp.style.display = "block"; 
+		
+		slideIndex++;
+		console.log("and the banner advances to "+slideIndex);
+		if (slideIndex > x.length) {slideIndex = 1} 
+		x[(slideIndex-1)].style.display = "block"; 
 		setTimeout(this.carousel, 3000); // Change image every 3 seconds
 	},
 
@@ -61,8 +57,8 @@ var app = {
 			app.getTradeInRequest(sessionStorage.id, "",  "ti-past", "customer");
 		
 		//make this div visible
-		thisdiv = document.getElementById(page);
-		thisdiv.style.display = "block";
+		console.log("this div to make visible "+page);
+		document.getElementById(page).style.display = "block";
 			
 		//need to take -page off the end to updateActive
 		page= page.slice(0, -5);
@@ -108,7 +104,7 @@ var app = {
 				delete date;
 			}
 		}
-		xhr.open("GET", "assignment2/php/getRecentBk.php?date=" + dateSQL, true);
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/getRecentBk.php?date=" + dateSQL, true);
 		xhr.send();
 	},
 
@@ -118,9 +114,9 @@ var app = {
 		for (i = 0; i < x.length; i++) {
 		  x[i].style.display = "none"; 
 		}
-		this.quoteIndex++;
-		if (this.quoteIndex > x.length) {this.quoteIndex = 1} 
-		x[(this.quoteIndex-1)].style.display = "block"; 
+		quoteIndex++;
+		if (quoteIndex > x.length) {quoteIndex = 1} 
+		x[(quoteIndex-1)].style.display = "block"; 
 		setTimeout(this.displayQuotes, 10000); // Change image every 10 seconds
 	}
 };
