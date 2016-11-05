@@ -8,12 +8,12 @@
         <title>BMM</title>
     </head>
     <body>
-        <div class = "banner"> <!--have to work out how to reliably centre images-->
-			<img class="coInfo" src="/images/banner/banner-since1999.jpg">
-			<img class="coInfo" src="/images/banner/banner-eVicPk.jpg">
-			<img class="coInfo" src="/images/banner/banner-in2016.jpg">
-			<img class="coInfo" src="/images/banner/banner-mypongaPS.jpg">
-			<img class="coInfo" src="/images/banner/banner-LTC-StateSchool.jpg">
+        <div class = "banner"> 
+			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-since1999.jpg">
+			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-eVicPk.jpg">
+			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-in2016.jpg">
+			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-mypongaPS.jpg">
+			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-LTC-StateSchool.jpg">
 		</div>
   
   <div class = "navigation" id="navigation">
@@ -27,12 +27,8 @@
 	  <li>
 	    <a id="search"  href="javascript:app.loadPage('search-page')">Search</a>
 	  </li>
-	  <!--<li>
-	    <a id="tradeIn" style="display: none" href="javascript:loadPage('tradeIn-page')">Trade-In Request</a>
-	  </li>
-	  <li>
-	    <a id="AED" style="display: none" href="javascript:loadPage('AED-page')">Add/Edit/Delete Books</a>
-	  </li>-->
+	  </ul>
+	  <ul>
 	  <li style="float: right">
 	    <a id="LO" style="display: none" href="">Logout</a> 
 	  </li>
@@ -56,11 +52,11 @@
 		</div>
 		
 		<div id="quote" class="float-right">
-			<img class="aQuote" src="images/aQuote/1.jpg">
-			<img class="aQuote" src="images/aQuote/2.jpg">
-			<img class="aQuote" src="images/aQuote/3.jpg">
-			<img class="aQuote" src="images/aQuote/4.jpg">
-			<img class="aQuote" src="images/aQuote/5.jpg">
+			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/1.jpg">
+			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/2.jpg">
+			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/3.jpg">
+			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/4.jpg">
+			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/5.jpg">
 		</div>
 						
 		<div id="recentBooks" class="fullwidth">
@@ -93,24 +89,11 @@
 	<div id="cart-page" style="display: none">
 	<p id = "showCart"></p>
 	</div>
-
-	<div id="AED-page" style="display: none">
-	<br /><form id = "formAED">
-	<label>Add: <input type = "radio" value = "Add" name = "aedRadio" onclick = "javascript:aedFunc()" /></label>
-	<label>Edit: <input type = "radio" value = "Edit" name = "aedRadio" onclick = "javascript:aedFunc()" /></label>
-	<label>Delete: <input type = "radio" value = "Delete" name = "aedRadio" onclick = "javascript:aedFunc()" /></label>
-	</form>
-        <p id = "aedInfo" class = "text"></p>
-	<p id = "add" class = "text"></p>
-	<p id = "edit" class = "text"></p>
-	<p id = "delete" class = "text"></p>
-	<p id = "aedInfo2" class = "text"></p>
-        </div>
 	
 	<div id="search-page" style="display: none">
 	<br /><form id = "SearchBox">
 	<label> Search: <input type = "text" name = "searchBox" /></label>
-	<button class = "type1" type = "button" value = "Submit" onclick = "javascript:searchText()">Search</button><br />
+	<button class = "type1" type = "button" value = "Submit" onclick = "javascript:app.searchText()">Search</button><br />
 	<p class = "text">
 	OR <br /><br /> Select 1 or more genres:
 	</p></form>
@@ -162,7 +145,7 @@
                 </td><td>
 		</td></tr></tbody>
 		</table>	
-	<button class = "type1" type = "button" value = "Submit" onclick = "javascript:search()">Search</button>
+	<button class = "type1" type = "button" value = "Submit" onclick = "javascript:app.search()">Search</button>
 	</p>
 	</form>
 	<p class = "text" id = "searchBooks"></p>
@@ -188,7 +171,7 @@
 			<label>Postcode: <input type = "text" name = "postcode"></input></label><br />
 			<label>Email: <input type = "text" name = "email"></input></label><br />
 			<label>Phone: <input type = "number" name = "phone"></input></label><br />
-			<button type = "button" onclick = "javascript:register()">Submit</button>
+			<button type = "button" onclick = "javascript:app.register()">Submit</button>
                         </p>
 			<p class = text id = "regFail"></p>
                         </form>
@@ -197,7 +180,7 @@
 			<p class = "text">
 			<label>Username: <input type = "text" name = "loginUsername"></input></label><br />
 			<label>Password: <input type = "password" name = "loginPassword"></input></label><br />
-			<button type = "button" onclick = "javascript:login(this.form.loginUsername.value, this.form.loginPassword.value)">Submit</button>
+			<button type = "button" onclick = "javascript:app.login(this.form.loginUsername.value, this.form.loginPassword.value)">Submit</button>
 			</p>
 			<p class = text id = "logFail"></p>
 			</form>
@@ -280,7 +263,7 @@
 			<option>2026</option>
                 </select></label>
 		<p class = "text" id = payForm></p>
-		<button class = "type1" type = "button" onclick = "javascript:purchase()">Submit Payment</button>
+		<button class = "type1" type = "button" onclick = "javascript:app.purchase()">Submit Payment</button>
 	</form>
 	<p id = "payError" class = "payError"></p>
         </div>
@@ -300,7 +283,7 @@
  			  <input type="text" name="csLN"></br>		
  			  Customers Phone:		
  			  <input type="text" name="csPH"></br>		
- 			  <button type="button" id="custSearch" onclick="javascript:customerSearch(this.form.csUN.value, this.form.csLN.value, this.form.csPH.value)">Search</button>		
+ 			  <button type="button" id="custSearch" onclick="javascript:app.customerSearch(this.form.csUN.value, this.form.csLN.value, this.form.csPH.value)">Search</button>		
  			</form>		
  		</div>		
  		<div id="accSResults" style="display: none">		
@@ -321,7 +304,7 @@
  			  Old Password:<input type="password" id="oldPassword">		
  			  New Password:<input type="password" id="newPassword">		
  			  New Password Again:<input type="password" id="newPasswordAgain">		
- 			  <button type="button" id="subPWChange"  onclick="javascript:validatePasswordChange(this.form)">Submit Change</button>		
+ 			  <button type="button" id="subPWChange"  onclick="javascript:app.validatePasswordChange(this.form)">Submit Change</button>		
  		  </form>		
  		</div>		
   			  	
@@ -332,69 +315,12 @@
  			<form id="fUpdateCB" action="">		
  				Adjust Credit Balance to:		
  				<input type="text" name="newCredBal">		
- 				<button type="button" id="adjustCred" onclick="javascript:updateCredit(this.form.newCredBal.value)">Adjust Credit Balance</button>		
+ 				<button type="button" id="adjustCred" onclick="javascript:app.updateCredit(this.form.newCredBal.value)">Adjust Credit Balance</button>		
  			</form>		
  		</div>
 	
 	</div>
-	
-	<div id="tradeIn-page" style="display: none">
-		<h1>Trade in request</h1>
-		<div id="ti-past"> 
-		<!--list of trade ins for this customer and their status		 
- 		hide if none or user is staff (they have their own access)-->
-		</div>
-		
-		<div id="ti-request"> <!-- hide if staff -->
-		<p>Please enter the details and photos of the book you would like to trade in. We will email you a price within 5 working days.</p>
-		<iframe src="" name="iframe_hide" width="100%" height="20"></iframe>
-		<form id="tradeIn-form" action="php/addTradeInBook.php" method="POST" enctype="multipart/form-data" target="iframe_hide"> <!-- don't want page to reload so going to have find a way to not do that -->
-		  <input type="hidden" name="CustID" id="setCust">
-		  <fieldset>
-		    <legend>Publication Information</legend>
-			Title*<br>
-		    <input type="text" name="tititle" onblur="setCustomer()"><br>
-			Author*<br>
-		    <input type="text" name="tiauthor"><br>
-			ISBN<br>
-		    <input type="text" name="tiisbn"><br>
-			Form*<br>
-			<input type="radio" name="tiform" value="Paperback" checked>Paperback<br>
-		    <input type="radio" name="tiform" value="Hardback">Hardback
-		  </fieldset>
-		  <fieldset>
-		    <legend>Condition Information</legend>
-			Description<br>
-		    <textarea name="tidesc" rows="10" cols="40"></textarea><br>
-			Photo of the front of the book*<br>
-		    <input type="file" name="tifrontImage" id="tifrontImage" accept="image/*"><br>
-			Photo of the back of the book*<br>
-		    <input type="file" name="tibackImage" id="tibackImage" accept="image/*"><br>
-			Photo of the spine of the book*<br>
-		    <input type="file" name="tispineImage" id="tispineImage" accept="image/*"><br>
-			Photo of the publication information page of the book*<br>
-		    <input type="file" name="tipubInfoImage" id="tipubInfoImage" accept="image/*" ><br>
-		    Photo of any other notable feature of the book (please mention in description)<br>
-			<input type="file" name="tiotherImage" id="tiotherImage" accept="image/*">
-		  </fieldset>
-		  *required fields<br>
-		  <input type="submit" value="Submit Trade In Request" name="submit">
-		</form>
-		
-		</div>
-		
-		<div id="ti-accept" style="display: none"> 
-		<!--<script>getTradeInRequest("all", "ti-accept", "staff");</script>-->
-		shows list (if more than one) of ALL trade-in requests by status(new, accepted, rejected, pending, finalised),  tradeInID(link to detail), custName, title, author.
-		
-		staff can provisionally accept tradein and offer a price which triggers email to customer with offer details
-		
-		staff can indicate receipt of book and absolute acceptence of trade in which triggers adding credit to customer account and email to customer and prompts staff to add/edit/delete page with some fields already completed.
-		</div>
-		<div id="ti-conf">
-		</div>
 
-	</div>
   </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

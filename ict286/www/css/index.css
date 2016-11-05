@@ -28,7 +28,6 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -66,8 +65,8 @@ div.banner img {
  display: block;
  margin-left: auto;
  margin-right: auto;
- width: auto;
- height: 150px;
+ width: 400px;
+ height: auto;
  margin: 0;
  padding: 0 25% 0 25%;
 }
@@ -116,21 +115,21 @@ div.navigation li a:hover {
 }
 
 img.book {
- height: 250px;
+ height: 100px;
  width: auto;
 }
 
 div.float-left {
  float: left;
  width: 49%;
- max-height: 500px;
+ max-height: 400px;
  padding: 0.5%;
 }
 
 div.float-right {
  float: right;
  width: 49%;
- max-height: 500px;
+ max-height: 400px;
  padding: 0.5%;
 }
 
