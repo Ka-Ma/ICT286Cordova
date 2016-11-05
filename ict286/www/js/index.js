@@ -22,8 +22,9 @@ var app = {
 		app.showBookOfWk(11111111);
 		app.showRecentBooks();
 		app.displayQuotes();
-		app.loadPage("home-page");
+		//app.loadPage("home-page");
     },
+	
 	carousel: function () {
 		var i;
 		var x = document.getElementsByClassName("coInfo");
@@ -118,27 +119,8 @@ var app = {
 		if (quoteIndex > x.length) {quoteIndex = 1} 
 		x[(quoteIndex-1)].style.display = "block"; 
 		setTimeout(this.displayQuotes, 10000); // Change image every 10 seconds
-	}
-};
-
-app.initialize();
-
-//global array for cart
-var Cart = [];
-
-//for banner
-var banner = {
+	},
 	
-};
-
-//***** start functions for home page *****
-var homepage = {
-	
-};
-//***** end functions for home page *****
-
-//***** start functions for book-page *****
-var bookpage = {
 	getBookDetail: function (bookID) {
 		//finding old div's id
 		var oldDiv = document.getElementsByClassName("active");
@@ -160,14 +142,10 @@ var bookpage = {
 				document.getElementById("book-page").innerHTML = result + backBtn;
 			}
 		}
-		xhr.open("GET", "php/getBookDetail.php?bookID=" + bookID, true);
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/getBookDetail.php?bookID=" + bookID, true);
 		xhr.send();
-	}
-};
-//***** end functions for book-page *****
-
-//***** start functions for account page *****		
-var accountpage = {
+	},
+	
 	getAccountDetailsByStored: function () {		
 		var username = sessionStorage.username;  		
 		var id = sessionStorage.id;  		
@@ -202,7 +180,7 @@ var accountpage = {
 					
 			}		
 		}		
-		xhr.open("GET", "php/getAccountDetails.php?username="+username+"&id="+id, true);		
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/getAccountDetails.php?username="+username+"&id="+id, true);		
 		xhr.send();		
 	},
 		
@@ -222,7 +200,7 @@ var accountpage = {
 			alert("All fields must be complete");		
 		}		
 		else {		
-			updateAccountDetails(sessionStorage.username, st, sub, state, pc, ph, e);		
+			app.updateAccountDetails(sessionStorage.username, st, sub, state, pc, ph, e);		
 		}		
 	},
 			
@@ -239,7 +217,7 @@ var accountpage = {
 			}		
 		}		
 				
-		xhr.open("GET", "php/updateAccountDetails.php?username="+username+"&st="+st+"&sub="+sub+"&state="+state+"&pc="+pc+"&ph="+ph+"&e="+e, true);		
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/updateAccountDetails.php?username="+username+"&st="+st+"&sub="+sub+"&state="+state+"&pc="+pc+"&ph="+ph+"&e="+e, true);		
 		xhr.send();		
 	},
 			
@@ -269,7 +247,7 @@ var accountpage = {
 		}		
 		else //success, update db		
 		{		
-			updatePWD(nPW);		
+			app.updatePWD(nPW);		
 		}		
 				
 	},
@@ -285,7 +263,7 @@ var accountpage = {
 			document.getElementById("passwordChange").innerHTML = result;		
 			}		
 		}		
-		xhr.open("GET", "php/updatePwd.php?nPwd="+nPwd+"&username="+sessionStorage.username, true);		
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/updatePwd.php?nPwd="+nPwd+"&username="+sessionStorage.username, true);		
 		xhr.send();		
 	},
 
@@ -322,7 +300,7 @@ var accountpage = {
 				}	
 			}	
 		}		
-		xhr.open("GET", "php/customerSearch.php?username="+username+"&lastname="+lastname+"&phone="+phone, true);		
+		xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/customerSearch.php?username="+username+"&lastname="+lastname+"&phone="+phone, true);		
 		xhr.send();	
 	},
 
@@ -349,14 +327,16 @@ var accountpage = {
 						
 				}	
 			}		
-			xhr.open("GET", "php/updateBalance.php?username="+sessionStorage.thisCustUN+"&id="+sessionStorage.thisCustID+"&newBal="+newCB, true);		
+			xhr.open("GET", "http://ceto.murdoch.edu.au/~32672684/assignment2/php/updateBalance.php?username="+sessionStorage.thisCustUN+"&id="+sessionStorage.thisCustID+"&newBal="+newCB, true);		
 			xhr.send();	
 		}
 	}
 };
-//***** end functions for account page *****		
-		
-//***** start functions for cart *****
+
+app.initialize();
+
+//global array for cart
+var Cart = [];
 
 //checks to see if book is in stock.
 //if yes, add to and update cart count, else display error message
