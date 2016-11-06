@@ -171,6 +171,29 @@ table {
  width: 100%;
 }
 
+/*forms*/
+input, select {
+width: auto;
+padding: 10px;
+box-sizing: border-box;
+border-radius: 6px;
+}
+
+input.short {
+width: 80px;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+background-color: teal;
+border: none;
+color: white;
+padding: 8px 10px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 6px;
+}
+
 /* titles and headers */
 h1 {
  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
