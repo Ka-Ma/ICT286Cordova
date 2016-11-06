@@ -24,7 +24,6 @@ var app = {
 		app.showBookOfWk(11111111);
 		app.showRecentBooks();
 		app.displayQuotes();
-		//app.loadPage("home-page");
     },
 	
 	expandNav: function() {
@@ -45,17 +44,19 @@ var app = {
 		}
 		
 		slideIndex++;
-		console.log("and the banner advances to "+slideIndex);
+		//console.log("and the banner advances to "+slideIndex);
 		if (slideIndex > x.length) {slideIndex = 1} 
 		x[(slideIndex-1)].style.display = "block"; 
-		setTimeout(this.carousel, 3000); // Change image every 3 seconds
+		setTimeout(function () {
+			app.carousel();
+			}, 3000); // Change image every 3 seconds
 	},
 
 	//to make div's visibile/hidden
 	loadPage: function(page) {
 		//finding old div's id
 		var oldDiv = document.getElementsByClassName("active");
-		console.log(oldDiv);
+		//console.log("loadPage - oldDIv "+oldDiv);
 		if(oldDiv.length == 0) {
 			var oldDivID = "undefined";
 		}else{
@@ -63,13 +64,14 @@ var app = {
 		}
 		
 		//make old div invisible
+		console.log("loadPage - oldDivID to be made invisible: "+oldDivID);
 		if (oldDivID != "undefined") {
 			document.getElementById(oldDivID).style.display = "none";
-		}else{
-			//incase it's the book-page
+		
+			//incase it a page not on the navbar
 			document.getElementById("book-page").style.display = "none";
-			//incase purchase page
 			document.getElementById("purchase-page").style.display = "none";
+			document.getElementById("help-page").style.display = "none";
 		}
 
 		//run particular scripts
@@ -77,11 +79,12 @@ var app = {
 			app.getTradeInRequest(sessionStorage.id, "",  "ti-past", "customer");
 		
 		//make this div visible
-		console.log("this div to make visible "+page);
+		//console.log("loadPage - this div to make visible "+page);
 		document.getElementById(page).style.display = "block";
 			
 		//need to take -page off the end to updateActive
 		page= page.slice(0, -5);
+		//console.log("loadPage - next to updateActive... "+page);
 		app.updateActive(page);
 	},
 
@@ -96,10 +99,13 @@ var app = {
 		}
 		var curPg = document.getElementById(current);
 		
+		//console.log("updateActive - oldpage "+oldPgId);
+		//console.log("updateActive - currentpage "+curPg);
+		
 		if (oldPgId !== "undefined")
 			document.getElementById(oldPgId).removeAttribute("class");
 		if (curPg != null){
-			console.log("should be updating class to active for "+curPg);
+			//console.log("should be updating class to active for "+curPg);
 			curPg.setAttribute("class", "active");
 		}
 	}, 
@@ -146,12 +152,15 @@ var app = {
 		quoteIndex++;
 		if (quoteIndex > x.length) {quoteIndex = 1} 
 		x[(quoteIndex-1)].style.display = "block"; 
-		setTimeout(this.displayQuotes, 10000); // Change image every 10 seconds
+		setTimeout(function () {
+			app.displayQuotes();
+			}, 10000); // Change image every 10 seconds
 	},
 	
 	getBookDetail: function (bookID) {
 		//finding old div's id
 		var oldDiv = document.getElementsByClassName("active");
+		//console.log("getBookDetail - oldDiv "+oldDiv[0]);
 		var oldDivID = oldDiv[0].getAttribute("id") + "-page";
 		
 		//make old div invisible
@@ -178,8 +187,8 @@ var app = {
 		var username = sessionStorage.username;  		
 		var id = sessionStorage.id;  		
 				
-		console.log("username = "+username);		
-		console.log("id = "+id);		
+		//console.log("username = "+username);		
+		//console.log("id = "+id);		
 				
 		app.getAccountInfo(username, id);		
 	},
@@ -188,8 +197,8 @@ var app = {
 		var username = cUsername; // customer username		
 		var id = cId;  //customer id		
 				
-		console.log("username = "+username);		
-		console.log("id = "+id);		
+		//console.log("username = "+username);		
+		//console.log("id = "+id);		
 				
 		var xhr= new XMLHttpRequest();		
 		xhr.onreadystatechange = function () {		
@@ -200,11 +209,11 @@ var app = {
 				document.getElementById("aWelcome").innerHTML = result[1];		
 				sessionStorage.forChecking = result[2];		
 						
-				console.log("forchecking "+result[2]);		
+				//console.log("forchecking "+result[2]);		
 						
 				sessionStorage.balance = result[3];		
 						
-				console.log("balance "+result[3]);		
+				//console.log("balance "+result[3]);		
 					
 			}		
 		}		
@@ -220,7 +229,7 @@ var app = {
 		var ph = formObj[4].value;		
 		var e = formObj[5].value;		
 				
-		console.log("validating Account Details change ");		
+		//console.log("validating Account Details change ");		
 			
 		//if any null discontinue		
 		if(st==""||sub==""||state==""||pc==""||ph==""||e=="")		
@@ -240,7 +249,7 @@ var app = {
 			if(xhr.readyState == 4 && xhr.status == 200) {		
 				var result = xhr.responseText;		
 						
-				console.log(result);		
+				//console.log(result);		
 				document.getElementById("accUpdated").innerHTML = result;		
 			}		
 		}		
@@ -254,12 +263,12 @@ var app = {
 		var nPW = formObj[1].value;		
 		var nPWA = formObj[2].value;		
 				
-		console.log(formObj);		
-		console.log(formObj[0].value);		
-		console.log(formObj[1].value);		
-		console.log(formObj[2].value);		
+		//console.log(formObj);		
+		//console.log(formObj[0].value);		
+		//console.log(formObj[1].value);		
+		//console.log(formObj[2].value);		
 			
-		console.log("will be comparing "+oPW+" to "+sessionStorage.forChecking);		
+		//console.log("will be comparing "+oPW+" to "+sessionStorage.forChecking);		
 				
 		if(oPW != sessionStorage.forChecking)		
 		{		
@@ -305,9 +314,9 @@ var app = {
 			if(xhr.readyState == 4 && xhr.status == 200) {		
 				var result = xhr.responseText.split('^');		
 				
-				console.log("customer search accDets = "+result[0]);
-				console.log("customer search UN = "+result[1]);
-				console.log("customer search id = "+result[2]);
+				//console.log("customer search accDets = "+result[0]);
+				//console.log("customer search UN = "+result[1]);
+				//console.log("customer search id = "+result[2]);
 				
 				if (result != "no result")
 				{
@@ -335,7 +344,7 @@ var app = {
 	updateCredit: function (newCredBal) {
 		var newCB = newCredBal;
 		
-		console.log("update credit, new credit is "+newCB);
+		//console.log("update credit, new credit is "+newCB);
 		
 		if (newCB >20 || newCB < -10)
 		{
@@ -348,7 +357,7 @@ var app = {
 				if(xhr.readyState == 4 && xhr.status == 200) {		
 					var result = xhr.responseText;		
 					
-					console.log("customer update bal = "+result);
+					//console.log("customer update bal = "+result);
 									
 					document.getElementById("newBal").innerHTML = result;
 					
@@ -421,7 +430,7 @@ var app = {
 	
 	remove: function(bookID) {
 		//make sure bookID is an integer
-		var number = app.parseInt(bookID);
+		var number = parseInt(bookID);
 	
 		//find index of book to remove, remove it
 		var index = Cart.indexOf(number);

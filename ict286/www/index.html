@@ -19,27 +19,27 @@
   <div class = "navigation" id="navigation">
     <ul>
 	  <li>
-	    <a id="home" class="active" href="javascript:app.loadPage('home-page')">Home</a>
+	    <a id="home" class="active" href="javascript:void(0)" onclick="app.loadPage('home-page');app.expandNav()">Home</a>
 	  </li>
 	  <li>
-	    <a id="aboutUs" href="javascript:app.loadPage('aboutUs-page');app.expandNav()">About Us</a>
+	    <a id="aboutUs" href="javascript:void(0)" onclick="app.loadPage('aboutUs-page');app.expandNav()">About Us</a>
 	  </li>
 	  <li>
-	    <a id="search"  href="javascript:app.loadPage('search-page');app.expandNav()">Search</a>
+	    <a id="search"  href="javascript:void(0)" onclick="app.loadPage('search-page');app.expandNav()">Search</a>
 	  </li>
 	  <li>
-	    <a id="cart"  href="javascript:app.loadPage('cart-page')" onclick = "javascript:app.displayCart();app.expandNav()">Cart</a>
+	    <a id="cart"  href="javascript:void(0)" onclick="app.loadPage('cart-page');app.expandNav();app.displayCart()">Cart</a>
 	  </li>
 	  <li class="icon"><a href="javascript:void(0);" onclick="app.expandNav()">&#9776;</a>
 	  </li>
 	  <li>
-	    <a id="account" style="display: none" href="javascript:app.loadPage('account-page');app.expandNav()">Account</a>
+	    <a id="account" style="display: none" href="javascript:void(0)" onclick="app.loadPage('account-page');app.expandNav()">Account</a>
 	  </li>
 	  <li>
 	    <a id="LO" style="display: none" href="">Logout</a> 
 	  </li>
 	  <li>
-	    <a id="LIR"  href="javascript:app.loadPage('LIR-page');app.expandNav()">Login/Register</a>
+	    <a id="LIR"  href="javascript:void(0)" onclick="app.loadPage('LIR-page');app.expandNav()">Login/Register</a>
 	  </li>
 	</ul>
   </div>

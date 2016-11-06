@@ -238,14 +238,14 @@ p.text {
 
 p.bookSearch {
  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
- font-size: 50%;
+ font-size: 70%;
  font-weight: 200;
  text-align: justify;
 }
 
 p.payError {
  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
- font-size: 50%;
+ font-size: 70%;
  font-weight: 200;
  margin-left: 10px;
  margin-right: 10px;
@@ -256,7 +256,7 @@ p.payError {
 
 label {
  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
- font-size: 50%;
+ font-size: 70%;
  font-weight: 200;
  margin-left: 10px;
  margin-right: 10px;
@@ -266,7 +266,7 @@ label {
 
 button.type1 {
  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
- font-size: 50%;
+ font-size: 70%;
  font-weight: 200;
  margin-left: 10px;
  margin-right: 10px;
