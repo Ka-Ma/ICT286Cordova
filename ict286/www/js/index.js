@@ -64,7 +64,7 @@ var app = {
 		}
 		
 		//make old div invisible
-		console.log("loadPage - oldDivID to be made invisible: "+oldDivID);
+		//console.log("loadPage - oldDivID to be made invisible: "+oldDivID);
 		if (oldDivID != "undefined") {
 			document.getElementById(oldDivID).style.display = "none";
 		
