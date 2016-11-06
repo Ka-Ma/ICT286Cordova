@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>BMM</title>
-    </head>
-    <body>
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>BMM</title>
+</head>
+<body style="max-width:400px">
         <div class = "banner"> 
 			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-since1999.jpg">
 			<img class="coInfo" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/banner/banner-eVicPk.jpg">
@@ -22,24 +22,24 @@
 	    <a id="home" class="active" href="javascript:app.loadPage('home-page')">Home</a>
 	  </li>
 	  <li>
-	    <a id="aboutUs" href="javascript:app.loadPage('aboutUs-page')">About Us</a>
+	    <a id="aboutUs" href="javascript:app.loadPage('aboutUs-page');app.expandNav()">About Us</a>
 	  </li>
 	  <li>
-	    <a id="search"  href="javascript:app.loadPage('search-page')">Search</a>
+	    <a id="search"  href="javascript:app.loadPage('search-page');app.expandNav()">Search</a>
 	  </li>
-	  </ul>
-	  <ul>
-	  <li style="float: right">
+	  <li>
 	    <a id="LO" style="display: none" href="">Logout</a> 
 	  </li>
-	  <li style="float: right">
-	    <a id="LIR"  href="javascript:app.loadPage('LIR-page')">Login/Register</a>
+	  <li>
+	    <a id="LIR"  href="javascript:app.loadPage('LIR-page');app.expandNav()">Login/Register</a>
 	  </li>
-	  <li style="float: right">
-	    <a id="account" style="display: none" href="javascript:app.loadPage('account-page')">Account</a>
+	  <li>
+	    <a id="account" style="display: none" href="javascript:app.loadPage('account-page');app.expandNav()">Account</a>
 	  </li>
-	  <li style="float: right">
-	    <a id="cart"  href="javascript:app.loadPage('cart-page')" onclick = "javascript:app.displayCart()">Cart</a>
+	  <li>
+	    <a id="cart"  href="javascript:app.loadPage('cart-page')" onclick = "javascript:app.displayCart();app.expandNav()">Cart</a>
+	  </li>
+	  <li class="icon"><a href="javascript:void(0);" onclick="app.expandNav()">&#9776;</a>
 	  </li>
 	</ul>
   </div>
@@ -48,10 +48,10 @@
   
     <div id="home-page" style="display: block">
 		
-		<div id="bookOfWk" class="float-left">
+		<div id="bookOfWk" class="fullwidth">
 		</div>
 		
-		<div id="quote" class="float-right">
+		<div id="quote" class="fullwidth">
 			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/1.jpg">
 			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/2.jpg">
 			<img class="aQuote" src="http://ceto.murdoch.edu.au/~32672684/assignment2/images/aQuote/3.jpg">
@@ -301,9 +301,9 @@
  		<div id="passwordChange">  		
  		<p></p>		
  		  <form name="passwordChangeReq">		
- 			  Old Password:<input type="password" id="oldPassword">		
- 			  New Password:<input type="password" id="newPassword">		
- 			  New Password Again:<input type="password" id="newPasswordAgain">		
+ 			  Old Password:<input type="password" id="oldPassword"></br>
+ 			  New Password:<input type="password" id="newPassword"></br>
+ 			  New Password Again:<input type="password" id="newPasswordAgain"></br>
  			  <button type="button" id="subPWChange"  onclick="javascript:app.validatePasswordChange(this.form)">Submit Change</button>		
  		  </form>		
  		</div>		
@@ -320,6 +320,17 @@
  		</div>
 	
 	</div>
+
+	<div id="help-page" style="display: none">
+	<h1>Help</h1>
+	<p>You may peruse our catalogue at any time and add to the cart. But, in order to checkout you will need to login. If you have not registered with us you will need to do so to login.</p>
+	<h2>Trading in books</h2>
+	<p>This can only be done on the website.</p>
+	</div>
+	
+	 <footer>
+	BMM: Books Matters, Mann! | 123 Pretend Street, Pretenderton, WA, 6210 | Ph: 9123 8765 | Email: <a href="'mailto:admin@bmm.com.au'">admin@bmm.com.au</a> | <a href="javascript:app.loadPage('help-page')">Help</a>
+	</footer>
 
   </div>
         <script type="text/javascript" src="cordova.js"></script>
